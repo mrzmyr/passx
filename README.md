@@ -17,6 +17,7 @@ npm install && node index.js
 ### Credits
 
 - `passwords.txt` from [http://dazzlepod.com](http://dazzlepod.com/site_media/txt/passwords.txt) (via [wikipedia](http://en.wikipedia.org/wiki/Password))
+- [zxcvbn](https://github.com/lowe/zxcvbn) – realistic password strength estimation
 
 ### Licence
 
