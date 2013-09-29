@@ -1,8 +1,9 @@
 var fs = require('fs');
 var colors = require('colors');
 var inquirer = require("inquirer");
+var zxcvbn = require("zxcvbn2");
 
-console.log('Reading passwords.txt...'.magenta);
+console.log('Reading passwords.txt...');
 
 fs.readFile('passwords.txt', 'utf8', function (err, passwordData) {
 
@@ -23,7 +24,7 @@ fs.readFile('passwords.txt', 'utf8', function (err, passwordData) {
     if(!answers['password']) {
       console.error('Please type a password'.red);
     } else {
-      console.log('Password will be checked in list ('.magenta + passwords.length + ')...'.magenta);
+      console.log('Password will be checked in list (' + passwords.length + ')...');
     }
 
     passwords.forEach(function (password) {
@@ -38,6 +39,10 @@ fs.readFile('passwords.txt', 'utf8', function (err, passwordData) {
     } else {
       console.error('[ATTENTION]'.red + ' Your password was found!');
     }
+
+    var statistics = zxcvbn(answers['password']);
+
+    console.log('[STATS] '.magenta + 'You password would be cracked: ' + statistics.crack_time_display.magenta + ' (' + statistics.crack_time + 's)');
   });
 
 });

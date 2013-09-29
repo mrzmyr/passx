@@ -5,7 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "inquirer": "~0.3.3",
-    "colors": "~0.6.2"
+    "colors": "~0.6.2",
+    "zxcvbn2": "~1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrzmyr/passx"
   },
   "devDependencies": {},
   "scripts": {
