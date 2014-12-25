@@ -23,6 +23,7 @@ fs.readFile('passwords.txt', 'utf8', function (err, passwordData) {
 
     if(!answers['password']) {
       console.error('Please type a password'.red);
+      return;
     } else {
       console.log('Password will be checked in list (' + passwords.length + ')...');
     }
@@ -42,7 +43,9 @@ fs.readFile('passwords.txt', 'utf8', function (err, passwordData) {
 
     var statistics = zxcvbn(answers['password']);
 
-    console.log('[STATS] '.magenta + 'You password would be cracked: ' + statistics.crack_time_display.magenta + ' (' + statistics.crack_time + 's)');
+    var crackTime = statistics.crack_time < 1 ? (statistics.crack_time * 1000) + 'ms' : statistics.crack_time + 's';
+
+    console.log('[STATS] '.magenta + 'You password would be cracked: ' + statistics.crack_time_display.magenta + ' (' + crackTime + ')');
   });
 
 });
