@@ -4,7 +4,7 @@
   "description": "Check your passwords against a large list of commonly used passwords",
   "main": "index.js",
   "dependencies": {
-    "inquirer": "~0.11.4",
+    "inquirer": "~1.0.0",
     "colors": "~1.1.2",
     "zxcvbn2": "~1.0.0"
   },
